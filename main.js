@@ -221,6 +221,17 @@ function animate() {
             if (rtan.y > RTAN_Y) rtan.y = RTAN_Y; // rtan이 초기 위치 아래로 내려가지 않도록 조정
         }
     }
+// 모바일 터치 이벤트 추가 (터치 시 점프)
+document.addEventListener("touchstart", function () {
+    if (!jump) {
+        jump = true; // 터치 시 점프 상태 유지
+        jumpSound.play(); // 점프 소리 재생
+    }
+});
+
+document.addEventListener("touchend", function () {
+    jump = false; // 터치가 끝나면 점프 상태 해제
+});
     /** end of 르탄이 */
 }
 /** end of 게임 애니메이션 */
